@@ -1,0 +1,167 @@
+cabal-version: 2.2
+
+-- This file has been generated from package.yaml by hpack version 0.36.0.
+--
+-- see: https://github.com/sol/hpack
+
+name:           redis-eff
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/smb374/redis-eff#readme>
+homepage:       https://github.com/smb374/redis-eff#readme
+bug-reports:    https://github.com/smb374/redis-eff/issues
+author:         Po-Yeh Chen
+maintainer:     poyehchen@cs.nycu.edu.tw
+copyright:      2024 Po-Yeh Chen
+license:        BSD-3-Clause
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    CHANGELOG.md
+
+source-repository head
+  type: git
+  location: https://github.com/smb374/redis-eff
+
+library
+  exposed-modules:
+      Effects
+      Effects.AtomicKVStore
+      Effects.DataIO
+      Effects.Logging
+      Effects.Parsing
+      Effects.Replication
+      Effects.Server
+      Effects.Timer
+      Options
+      Redis
+      Utils
+  other-modules:
+      Paths_redis_eff
+  autogen-modules:
+      Paths_redis_eff
+  hs-source-dirs:
+      src
+  default-extensions:
+      DataKinds
+      FlexibleContexts
+      GADTs
+      LambdaCase
+      PolyKinds
+      RankNTypes
+      ScopedTypeVariables
+      TypeApplications
+      TypeOperators
+      TypeFamilies
+  ghc-options: -O2 -fplugin=Effectful.Plugin -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      ansi-terminal
+    , attoparsec
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , effectful
+    , effectful-core
+    , effectful-plugin
+    , effectful-th
+    , exceptions
+    , fast-logger
+    , hashable
+    , network
+    , optparse-applicative
+    , random
+    , text
+    , unix-time
+    , unliftio
+    , unordered-containers
+    , vector
+  default-language: Haskell2010
+
+executable run-redis-eff
+  main-is: Main.hs
+  other-modules:
+      Paths_redis_eff
+  autogen-modules:
+      Paths_redis_eff
+  hs-source-dirs:
+      app
+  default-extensions:
+      DataKinds
+      FlexibleContexts
+      GADTs
+      LambdaCase
+      PolyKinds
+      RankNTypes
+      ScopedTypeVariables
+      TypeApplications
+      TypeOperators
+      TypeFamilies
+  ghc-options: -O2 -fplugin=Effectful.Plugin -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      ansi-terminal
+    , attoparsec
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , effectful
+    , effectful-core
+    , effectful-plugin
+    , effectful-th
+    , exceptions
+    , fast-logger
+    , hashable
+    , network
+    , optparse-applicative
+    , random
+    , redis-eff
+    , text
+    , unix-time
+    , unliftio
+    , unordered-containers
+    , vector
+  default-language: Haskell2010
+
+test-suite redis-eff-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_redis_eff
+  autogen-modules:
+      Paths_redis_eff
+  hs-source-dirs:
+      test
+  default-extensions:
+      DataKinds
+      FlexibleContexts
+      GADTs
+      LambdaCase
+      PolyKinds
+      RankNTypes
+      ScopedTypeVariables
+      TypeApplications
+      TypeOperators
+      TypeFamilies
+  ghc-options: -O2 -fplugin=Effectful.Plugin -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      ansi-terminal
+    , attoparsec
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , effectful
+    , effectful-core
+    , effectful-plugin
+    , effectful-th
+    , exceptions
+    , fast-logger
+    , hashable
+    , network
+    , optparse-applicative
+    , random
+    , redis-eff
+    , text
+    , unix-time
+    , unliftio
+    , unordered-containers
+    , vector
+  default-language: Haskell2010
